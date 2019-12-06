@@ -1,25 +1,37 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import {makeStyles} from "@material-ui/styles"
+import React, { useState } from "react";
+import {useTheme } from "@material-ui/styles";
+import { NavBar } from "../Nav/Nav";
+import { MainEvent } from "./MainEvent";
+import {useStyles} from "./HomeStyles"
 
-const useStyles = makeStyles({
-    root: {
-        background: "red",
-        height: '100vh',
-        textAlign: "center"
-    },
-    head: {
-        margin: "auto"
-    }
-})
 
 const Home = () => {
-  
-  const classes = useStyles()
+  const [activeStep, setActiveStep] = useState(0);
+  const [hover,setHover] = useState(false)
+  const classes = useStyles();
+  const theme = useTheme();
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
+ 
+   const HandleHover = () =>{
+     setHover(!hover)
+   }
+
   return (
-    <Container maxWidth="md" className={classes.root}>
-      <h1 className={classes.head}>Shopy@TN</h1>
-    </Container>
+    <div>
+      <NavBar />
+      <div  className={classes.root}>
+        <MainEvent 
+        theme={theme}
+        activeStep={activeStep}
+        handleStepChange={handleStepChange}
+        classes={classes}
+        hover={hover}
+        handleHover={HandleHover}
+        />
+      </div>
+    </div>
   );
 };
 
