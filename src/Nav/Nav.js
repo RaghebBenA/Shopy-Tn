@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./NavStyle";
 import Typography from "@material-ui/core/Typography";
 import { DrawerComponent } from "./Drawer";
+import { HideOnScroll } from "../StoryComponents/hideOnscroll";
 
 
 export const NavBar = () => {

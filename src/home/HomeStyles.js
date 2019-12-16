@@ -1,10 +1,21 @@
 import { makeStyles } from "@material-ui/styles";
 
 export  const useStyles = makeStyles({
+
     root:{
       marginTop: "3%",
       display: "flex",
-      justifyContent: "center"
+      justifyContent: "center",
+  
+    },
+    home:{
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      backgroundColor: "rgba(228, 221, 243, 0.29)",
+      minHeight: "100vh",
+      paddingBottom: 250,
+      overflow: "hidden"
     },
     img: {
       height: 310,
