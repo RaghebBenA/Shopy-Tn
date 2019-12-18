@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
+import TextField from '@material-ui/core/TextField';
 const useStyle = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -22,17 +23,18 @@ const RightSideFooter = () => {
     <form className={classes.root}>
       <Grid container direction="column" justify="space-between" alignItems="center">
       <Typography variant="h5" component="h2">Sell With Shopy@TN</Typography>
-        <input
-          className={classes.Input}
-          placeholder="Your Name"
+        <TextField
+          label="Your Name"
+          variant="outlined"
         />
-        <input
-          className={classes.Input}
-          placeholder="Your Email"
+        <TextField
+          label="Your Email"
+          variant="outlined"
         />
-        <textarea
-          placeholder="Your Message"
-          className={classes.Input}
+        <TextField
+          label="Your Message"
+          multiline
+          variant="outlined"
         />
       </Grid>
     </form>

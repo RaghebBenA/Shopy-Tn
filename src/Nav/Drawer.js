@@ -7,13 +7,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import Link from "@material-ui/core/Link";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import CallIcon from "@material-ui/icons/Call";
+import Button from '@material-ui/core/Button';
 
 export const DrawerComponent = ({
   classes,
   preventDefault,
   open,
   toggleDrawerFlase,
-  toggleDrawerTrue
+  toggleDrawerTrue,
+  handleDialog
 }) => {
   return (
     <SwipeableDrawer
@@ -48,6 +51,14 @@ export const DrawerComponent = ({
             />
           </ListItemIcon>
         </ListItem>
+        <ListItem>
+        <ListItemText>
+        <Button component="span" onClick={handleDialog} >Upload</Button>
+        </ListItemText>
+        <ListItemIcon>
+        <CallIcon fontSize="small"/>
+        </ListItemIcon>
+      </ListItem>
       </List>
     </SwipeableDrawer>
   );

@@ -8,16 +8,22 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./NavStyle";
 import Typography from "@material-ui/core/Typography";
 import { DrawerComponent } from "./Drawer";
-import { HideOnScroll } from "../StoryComponents/hideOnscroll";
+import Footer from "../footer/footer";
 
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
+  const [openDial,setDialog] = useState(false)
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
   const toggleDrawer = (bool) => {
     setOpen(bool);
   };
+
+  const Hadnledialog =() =>{
+    setDialog(!openDial)
+  }
+
   return (
     <div>
       <AppBar position="static" className={classes.root}>
@@ -49,8 +55,10 @@ export const NavBar = () => {
                 open={open}
                 toggleDrawerFlase={() => toggleDrawer(false)}
                 toggleDrawerTrue={() => toggleDrawer(true)}
+                handleDialog={Hadnledialog}
               />
             </div>
+            <Footer open={openDial} handleClose={Hadnledialog} />
           </div>
         </Toolbar>
       </AppBar>
