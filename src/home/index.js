@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useTheme } from "@material-ui/styles";
 import { MainEvent } from "./MainEvent";
 import { useStyles } from "./HomeStyles";
 import axios from "axios";
@@ -13,7 +12,6 @@ const Home = () => {
   const [proudcts, setProducts] = useState({});
   const [hover, setHover] = useState(false);
   const classes = useStyles();
-  const theme = useTheme();
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
@@ -49,7 +47,6 @@ const Home = () => {
     <div className={classes.home}>
       <div className={classes.root}>
         <MainEvent
-          theme={theme}
           activeStep={activeStep}
           handleStepChange={handleStepChange}
           classes={classes}

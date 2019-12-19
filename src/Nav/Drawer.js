@@ -53,7 +53,7 @@ export const DrawerComponent = ({
         </ListItem>
         <ListItem>
         <ListItemText>
-        <Button component="span" onClick={handleDialog} >Upload</Button>
+        <Button component="span" onClick={handleDialog} >Contact</Button>
         </ListItemText>
         <ListItemIcon>
         <CallIcon fontSize="small"/>

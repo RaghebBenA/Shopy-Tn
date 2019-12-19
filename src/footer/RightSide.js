@@ -11,7 +11,6 @@ const useStyle = makeStyles((theme) => ({
   },
   Input: {
     margin: ".5em",
-    border: '1px solid #ced4da',
     fontSize: 24,
     fontFamily: "Roboto",
   }
@@ -26,15 +25,18 @@ const RightSideFooter = () => {
         <TextField
           label="Your Name"
           variant="outlined"
+          className={classes.Input}
         />
         <TextField
           label="Your Email"
           variant="outlined"
+          className={classes.Input}
         />
         <TextField
           label="Your Message"
           multiline
           variant="outlined"
+          className={classes.Input}
         />
       </Grid>
     </form>

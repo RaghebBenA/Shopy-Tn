@@ -7,6 +7,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { URL } from "../config/config";
 import Grow from "@material-ui/core/Grow";
+import Badge from "@material-ui/core/Badge";
+
 const useStyle = makeStyles({
   card: {
     width: 290,
@@ -24,26 +26,29 @@ const useStyle = makeStyles({
   }
 });
 
-const Product = ({ image, title, condition}) => {
+const Product = ({ image, title, price, condition }) => {
   const classes = useStyle();
+
   return (
-    <Grow  in={condition}>
-      <Card>
-        <CardActionArea className={classes.card}>
-          <CardMedia title={title} className={classes.media}>
-            <img
-              src={`${URL}/${image}`}
-              alt={title}
-              className={classes.image}
-            />
-          </CardMedia>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+    <Grow in={condition}>
+      <Badge color="secondary" badgeContent={`${price}$`} max={9999}>
+        <Card>
+          <CardActionArea className={classes.card}>
+            <CardMedia title={title} className={classes.media}>
+              <img
+                src={`${URL}/${image}`}
+                alt={title}
+                className={classes.image}
+              />
+            </CardMedia>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {title}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </Badge>
     </Grow>
   );
 };

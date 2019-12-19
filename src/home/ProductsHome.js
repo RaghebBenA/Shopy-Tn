@@ -1,9 +1,8 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
 
 const useStyle = makeStyles({
   root: {
@@ -31,13 +30,13 @@ const useStyle = makeStyles({
 
 const HomeProducts = ({ Products, CategoryName }) => {
   const classes = useStyle();
-  const [condition,setCondition] = useState(false)
+  const [condition, setCondition] = useState(false);
 
-  useEffect(()=>{
-      if(Products){
-          setCondition(true)
-      }
-  },[Products])
+  useEffect(() => {
+    if (Products) {
+      setCondition(true);
+    }
+  }, [Products]);
 
   return (
     <div className={classes.root}>
@@ -47,10 +46,10 @@ const HomeProducts = ({ Products, CategoryName }) => {
       </div>
       <Grid container justify="center" spacing={1} className={classes.product}>
         {Products ? (
-          Products.map(({ name, image, id }) => (
-              <React.Fragment key={id}>
-              <Product title={name} image={image} condition={condition} />
-              </React.Fragment>
+          Products.map(({ name, image, id,price }) => (
+            <React.Fragment key={id}>
+              <Product title={name} image={image} condition={condition} price={price} />
+            </React.Fragment>
           ))
         ) : (
           <h1>Proccesing</h1>
