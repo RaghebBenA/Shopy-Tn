@@ -9,28 +9,32 @@ import { useStyles } from "./NavStyle";
 import Typography from "@material-ui/core/Typography";
 import { DrawerComponent } from "./Drawer";
 import Footer from "../footer/footer";
+import { Link } from "react-router-dom";
 
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const [openDial,setDialog] = useState(false)
+  const [openDial, setDialog] = useState(false);
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
   const toggleDrawer = (bool) => {
     setOpen(bool);
   };
 
-  const Hadnledialog =() =>{
-    setDialog(!openDial)
-  }
+  const Hadnledialog = () => {
+    setDialog(!openDial);
+  };
 
   return (
     <div>
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolBar}>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Shopy@Tn
-          </Typography>
+       
+            <Typography variant="h6" noWrap className={classes.title}>
+            <Link to="/" className={classes.linkBrand} >
+                 Shopy@Tn
+            </Link>
+            </Typography>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div classes={classes.search}>
               <div className={classes.searchIcon}>

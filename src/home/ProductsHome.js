@@ -46,9 +46,15 @@ const HomeProducts = ({ Products, CategoryName }) => {
       </div>
       <Grid container justify="center" spacing={1} className={classes.product}>
         {Products ? (
-          Products.map(({ name, image, id,price }) => (
+          Products.map(({ name, image, id, price }) => (
             <React.Fragment key={id}>
-              <Product title={name} image={image} condition={condition} price={price} />
+              <Product
+                title={name}
+                image={image}
+                condition={condition}
+                price={price}
+                id={id}
+              />
             </React.Fragment>
           ))
         ) : (

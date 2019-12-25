@@ -21,6 +21,14 @@ export  const useStyles = makeStyles((theme) => ({
         display: "block"
       }
     },
+    linkBrand:{
+      textDecoration: "none",  
+      color: 'white',
+      "&:hover":{
+        cursor: "pointer",
+        textDecoration: "none",
+      },
+    },
     search: {
       position: "relative",
       borderRadius: theme.shape.borderRadius,
