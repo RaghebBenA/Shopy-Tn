@@ -3,6 +3,7 @@ import Product from "./Product";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
 
 const useStyle = makeStyles({
   root: {
@@ -25,6 +26,10 @@ const useStyle = makeStyles({
   product: {
     width: "100%",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
+  },
+  link:{
+    textDecoration: "none",
+    color:"inherit"
   }
 });
 
@@ -42,7 +47,9 @@ const HomeProducts = ({ Products, CategoryName }) => {
     <div className={classes.root}>
       <div className={classes.titles}>
         <Typography>{CategoryName}</Typography>
-        <Typography>See More >></Typography>
+        <Typography>
+          <Link className={classes.link} to={`/Products/${CategoryName}/page/${1}`}>See More >></Link>
+        </Typography>
       </div>
       <Grid container justify="center" spacing={1} className={classes.product}>
         {Products ? (

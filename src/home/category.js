@@ -6,10 +6,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MobileScreenShareIcon from "@material-ui/icons/MobileScreenShare";
 import DesktopMacIcon from "@material-ui/icons/DesktopMac";
 import RouterIcon from "@material-ui/icons/Router";
-import uuid from "uuid/v4"
+import uuid from "uuid/v4";
+import { Link } from "react-router-dom";
 
 
-const Category = [
+export const Category = [
   {
     name: "Telephone & Tablette",
     icon: <MobileScreenShareIcon />
@@ -36,14 +37,16 @@ const Category = [
   }
 ];
 
-const ProdCategory = ({classes}) => {
+const ProdCategory = ({ classes }) => {
   return (
     <div className={classes.Category}>
       <List>
         {Category.map(({ name, icon }) => (
           <ListItem className={classes.ListItem} key={uuid()}>
-            <ListItemText>{name}</ListItemText>
-            <ListItemIcon>{icon}</ListItemIcon>
+            <Link to={`/Products/${name}/page/${1}`} className={classes.LinkStyle}>
+              <ListItemText>{name}</ListItemText>
+              <ListItemIcon>{icon}</ListItemIcon>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -51,4 +54,4 @@ const ProdCategory = ({classes}) => {
   );
 };
 
-export default ProdCategory
+export default ProdCategory;

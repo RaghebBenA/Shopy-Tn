@@ -60,5 +60,12 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
+  },
+  LinkStyle:{
+    textDecoration: 'none',
+    color: "inherit",
+    display: "flex",
+    width: "100%",
+    justifyContent: "space-between"
   }
 }));
