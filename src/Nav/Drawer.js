@@ -16,7 +16,8 @@ export const DrawerComponent = ({
   open,
   toggleDrawerFlase,
   toggleDrawerTrue,
-  handleDialog
+  handleDialog,
+  SignIn_toggler
 }) => {
   return (
     <SwipeableDrawer
@@ -30,7 +31,7 @@ export const DrawerComponent = ({
       <List>
         <ListItem>
           <ListItemText>
-            <Link href="#" onClick={preventDefault} color="inherit">
+            <Link href="#" onClick={SignIn_toggler} color="inherit">
               Sing In
             </Link>
           </ListItemText>

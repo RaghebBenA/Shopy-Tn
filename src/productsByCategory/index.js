@@ -7,8 +7,8 @@ import Axios from "axios";
 import { URL } from "../config/config";
 import ProductBycat from "./Proudcts";
 import Pagnation from "./pagnation";
-import {useSelector,useDispatch} from "react-redux"
-import {PRODUCT_FETCH} from "../Redux/actions/types"
+import { useSelector, useDispatch } from "react-redux";
+import { PRODUCT_FETCH } from "../Redux/actions/types";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -29,10 +29,9 @@ const useStyle = makeStyles((theme) => ({
 const ProductByType = ({ match }) => {
   const [title, setTitle] = useState();
   const [condition, setCondtion] = useState(false);
-  const [pages,setPages] = useState(1)
-  const Products = useSelector(state=> state.products)
-  const dispatch = useDispatch()
-
+  const [pages, setPages] = useState(1);
+  const Products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     function GetCategory() {
@@ -45,21 +44,20 @@ const ProductByType = ({ match }) => {
   }, [match.params.category]);
 
   useEffect(() => {
-
     Axios.get(
       `${URL}/api/Products/category/${match.params.category}/${match.params.page}`
     )
       .then((Prod) => {
-       dispatch({type: PRODUCT_FETCH, payload: Prod.data.data})
-       setPages(Prod.data.pages)
+        dispatch({ type: PRODUCT_FETCH, payload: Prod.data.data });
+        setPages(Prod.data.pages);
       })
       .catch((e) => {
         console.log(e);
       });
-      return(()=>{
-        dispatch({type: PRODUCT_FETCH, payload: []})
-      })
-  }, [match.params.category, match.params.page,dispatch]);
+    return () => {
+      dispatch({ type: PRODUCT_FETCH, payload: [] });
+    };
+  }, [match.params.category, match.params.page, dispatch]);
   useEffect(() => {
     if (Products.length > 0) {
       setCondtion(true);
@@ -71,7 +69,9 @@ const ProductByType = ({ match }) => {
   const classes = useStyle();
 
   return (
-    <Container className={title && Products.length > 0? classes.root : classes.root2}>
+    <Container
+      className={title && Products.length > 0 ? classes.root : classes.root2}
+    >
       {title && Products.length > 0 ? (
         <React.Fragment>
           <p className={classes.title}>

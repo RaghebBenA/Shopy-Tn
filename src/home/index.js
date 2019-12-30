@@ -3,7 +3,6 @@ import { MainEvent } from "./MainEvent";
 import { useStyles } from "./HomeStyles";
 import axios from "axios";
 import { URL} from "../config/config";
-import { CookiesSet } from "./CookiesAlert";
 import HomeProducts from "./ProductsHome";
 
 const Home = () => {
@@ -16,10 +15,7 @@ const Home = () => {
     setActiveStep(step);
   };
 
-  const fetchUser = () => {
-    const fetch = axios.get(`${URL}/api/userloco`);
-    return fetch;
-  };
+
 
   useEffect(() => {
     const fetchCookie = async () => {
@@ -54,7 +50,6 @@ const Home = () => {
           handleHover={HandleHover}
         />
 
-        <CookiesSet fetchCookie={fetchUser} />
       </div>
       <HomeProducts
         Products={

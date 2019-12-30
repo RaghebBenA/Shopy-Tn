@@ -16,7 +16,7 @@ const Pagnation = ({ name, page,pageNumber }) => {
  let items = []
   for(let i = 1 ; i <= pageNumber; i++ ){
     items.push(
-      <Button color="secondary" variant={page !== i && "outlined"}>
+      <Button key={i} color="secondary" variant={page !== i && "outlined"}>
       <Link to={`/Products/${name}/page/${i}`} className={classes.link}>
         {i}
       </Link>

@@ -1,7 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import FooterLeftSide from "./leftSide";
-import RightSideFooter from "./RightSide";
 import Dialog from "@material-ui/core/Dialog";
 import Slide from "@material-ui/core/Slide";
 import IconButton from "@material-ui/core/IconButton";
@@ -44,7 +42,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Footer = ({ open, handleClose }) => {
+const Diale = ({ open, handleClose,title1,title2,children }) => {
   const classes = useStyle();
   return (
     <Dialog
@@ -64,17 +62,16 @@ const Footer = ({ open, handleClose }) => {
             <CloseIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Contact Us
+            {title1}
           </Typography>
           <Button autoFocus color="inherit" onClick={handleClose}>
-            Send Messase
+           {title2}
           </Button>
         </Toolbar>
       </AppBar>
-      <FooterLeftSide />
-      <RightSideFooter />
+          {children}
     </Dialog>
   );
 };
 
-export default Footer;
+export default Diale;
